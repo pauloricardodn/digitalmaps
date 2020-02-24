@@ -3,9 +3,13 @@ package com.digitalmaps.api.service;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import java.text.DateFormat;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.tomcat.jni.Time;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,7 +27,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.digitalmaps.api.entities.PontoDeInteresse;
 import com.digitalmaps.api.repositories.PontoDeInteresseRepository;
 import com.digitalmaps.api.services.PontoDeInteresseService;
-import com.kazale.pontointeligente.api.entities.Lancamento;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

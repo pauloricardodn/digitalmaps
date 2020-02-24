@@ -56,7 +56,7 @@ public class PontoDeInteresseDto implements Serializable {
 	}	
 
 	@JsonProperty("cordenadaX")
-	@Min(value = 0L, message = "Cordenada x não pode ser negativa")
+	@Min(value = 0L, message = "Cordenada x não pode ser negativa.")
 	public int getCoordenadaX() {
 		return coordenadaX;
 	}
@@ -66,7 +66,7 @@ public class PontoDeInteresseDto implements Serializable {
 	}
 
 	@JsonProperty("cordenadaY")
-	@Min(value = 0L, message = "Cordenada x não pode ser negativa")
+	@Min(value = 0L, message = "Cordenada y não pode ser negativa.")
 	public int getCoordenadaY() {
 		return coordenadaY;
 	}
@@ -75,7 +75,7 @@ public class PontoDeInteresseDto implements Serializable {
 		this.coordenadaY = coordenadaY;
 	}
 
-	@JsonFormat(pattern="HH:mm")
+	@JsonFormat(pattern="HH:mm:ss")
 	@JsonProperty("opened")
 	public Time getOpened() {
 		return opened;
@@ -85,7 +85,7 @@ public class PontoDeInteresseDto implements Serializable {
 		this.opened = opened;
 	}
 
-	@JsonFormat(pattern="HH:mm")
+	@JsonFormat(pattern="HH:mm:ss")
 	@JsonProperty("closed")
 	public Time getClosed() {
 		return closed;

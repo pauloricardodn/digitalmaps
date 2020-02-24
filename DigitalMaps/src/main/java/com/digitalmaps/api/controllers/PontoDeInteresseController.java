@@ -1,6 +1,7 @@
 package com.digitalmaps.api.controllers;
 
 import java.security.NoSuchAlgorithmException;
+import java.sql.Time;
 import java.text.ParseException;
 import java.util.List;
 
@@ -13,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -84,6 +86,23 @@ public class PontoDeInteresseController {
 		log.info("Listanto todos pontoDeInteresseDto");	
 		Response<List<PontoDeInteresseDto>> response = new Response<List<PontoDeInteresseDto>>();	
 		List<PontoDeInteresse> listEntity = this.pontoDeInteresseService.listar();
+		response.setData(pontoDeInteresseConverter.ParseListToDto(listEntity));
+		
+		return ResponseEntity.ok(response);
+	}
+	
+	/**
+	 * Retornar todos PontoDeInteresse abertos no perimetro.
+	 * 
+	 * @param PontoDeInteresse
+	 * @return  @return ResponseEntity<Response<PontoDeInteresseDto>>
+	 */	
+	@ApiOperation(value="Retornar todos PontoDeInteresse  abertos no perimetro.")
+	@GetMapping("/pontodeinteresse/listporperimetro/coordenadax/{x}/coordenaday/{y}/distancia/{mts}/horario/{hr}")
+	public ResponseEntity<Response<List<PontoDeInteresseDto>>> listPorPerimetro(@PathVariable("x") int x, @PathVariable("y") int y, @PathVariable("mts") int mts, @PathVariable("hr") Time hr) {		
+		log.info("Listanto todos pontoDeInteresseDto");	
+		Response<List<PontoDeInteresseDto>> response = new Response<List<PontoDeInteresseDto>>();	
+		List<PontoDeInteresse> listEntity = this.pontoDeInteresseService.listarPorPerimetro(x, y, mts, hr);
 		response.setData(pontoDeInteresseConverter.ParseListToDto(listEntity));
 		
 		return ResponseEntity.ok(response);

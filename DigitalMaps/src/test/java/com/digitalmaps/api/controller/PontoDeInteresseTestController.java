@@ -84,8 +84,8 @@ public class PontoDeInteresseTestController {
 		JSONObject json = new JSONObject();
 		json.put("id", 1);
 		json.put("nome", "Restautante A");
-		json.put("coordenadaX", -20);
-		json.put("coordenadaY", 10);
+		json.put("cordenadaX", -20);
+		json.put("cordenadaY", 10);
 		json.put("opened", "07:00:00");
 		json.put("closed", "18:00:00");
 		
@@ -94,7 +94,7 @@ public class PontoDeInteresseTestController {
 				.contentType(MediaType.APPLICATION_JSON)
 				.accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isBadRequest())
-				.andExpect(jsonPath("$.errors").value("Cordenada x não pode ser negativa"))
+				.andExpect(jsonPath("$.errors").value("Cordenada x não pode ser negativa."))
 				.andExpect(jsonPath("$.data").isEmpty());
 	}
 	
@@ -102,10 +102,9 @@ public class PontoDeInteresseTestController {
 	public void testCadastrarComCordenaYNegativa() throws Exception {
 
 		JSONObject json = new JSONObject();
-		json.put("id", 1);
 		json.put("nome", "Restautante A");
-		json.put("coordenadaX", 20);
-		json.put("coordenadaY", -10);
+		json.put("cordenadaX", 20);
+		json.put("cordenadaY", -10);
 		json.put("opened", "07:00:00");
 		json.put("closed", "18:00:00");
 		
@@ -113,16 +112,30 @@ public class PontoDeInteresseTestController {
 				.content(json.toString())
 				.contentType(MediaType.APPLICATION_JSON)
 				.accept(MediaType.APPLICATION_JSON))
-				//.andExpect(status().isBadRequest())
-				//.andExpect(jsonPath("$.errors").value("[Cordenada y não pode ser negativa.]"))
+				.andExpect(status().isBadRequest())
+				.andExpect(jsonPath("$.errors").value("Cordenada y não pode ser negativa."))
 				.andExpect(jsonPath("$.data").isEmpty());
 	}
 	
 	@Test
 	public void testListar() throws Exception {
-		mockMvc.perform(MockMvcRequestBuilders.get(URL_BASE)
+		mockMvc.perform(MockMvcRequestBuilders.get(URL_BASE)				
 				.accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk());
 	}
 
+	@Test
+	public void listPorPerimetro() throws Exception {
+		mockMvc.perform(MockMvcRequestBuilders.get("/api/pontodeinteresse/listporperimetro/coordenadax/5/coordenaday/12/distancia/10/horario/20:00:00")		
+				
+				.accept(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk());
+	}
+	
+	@Test
+	public void listPorPerimetroFaltandoParametro() throws Exception {
+		mockMvc.perform(MockMvcRequestBuilders.get(URL_BASE+"/listporperimetro/coordenadax/5/coordenaday/12/distancia/10")
+				.accept(MediaType.APPLICATION_JSON))
+				.andExpect(status().isNotFound());
+	}
 }
