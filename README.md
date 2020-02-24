@@ -18,16 +18,16 @@ O serviço permite a listagem de todos os pontos de interesse por proximidade,
  fornecendo as coordenadas X e Y, a distância em metros e hora atual. <br>
 
 
-## 1 - Tecnologias Utilizadas 
+## 2 - Tecnologias Utilizadas 
   
 - Java 8. <br>  
 - Spring Boot 2.2.4. <br> 
 - Maven. <br>
 - Spring Tools 4. <br> 
 
-## 2 - Considerações de Desenvolvimento
+## 3 - Considerações de Desenvolvimento
 
-- As APIs deverão segue o modelo RESTFul com formato JSON. <br>
+- As APIs seguem o modelo RESTFul com formato JSON. <br>
 - Foram desenvolvidos testes unitários. <br>
 
 ## 2 - Requisitos para rodar aplicação
