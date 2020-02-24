@@ -30,11 +30,11 @@ O serviço permite a listagem de todos os pontos de interesse por proximidade,
 - As APIs seguem o modelo RESTFul com formato JSON. <br>
 - Foram desenvolvidos testes unitários. <br>
 
-## 2 - Requisitos para rodar aplicação
+## 4 - Requisitos para rodar aplicação
 
 - Java SE Development Kit 8 instalado na maquina. <br>
 
-## 3 - Documentaçao  
+## 4 - Documentaçao  
   
  - **Swagger** gerar automaticamente a documentação dos endpoints da API.
  Apos a aplicação se iniciada ela se encotra no seguinte endereço: 
