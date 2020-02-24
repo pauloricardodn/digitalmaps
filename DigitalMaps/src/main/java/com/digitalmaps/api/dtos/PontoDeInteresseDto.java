@@ -25,7 +25,7 @@ public class PontoDeInteresseDto implements Serializable {
 		super();
 	}
 
-	public PontoDeInteresseDto(long id, String nome, int coordenadaX, int coordenadaY, Time opened, Time closed,
+	public PontoDeInteresseDto(long id, String nome, int coordenadaX, int coordenadaY, Time opened, Time closed,  
 			String statusFuncionamento) {
 		super();
 		this.id = id;
@@ -74,8 +74,7 @@ public class PontoDeInteresseDto implements Serializable {
 	public void setCoordenadaY(int coordenadaY) {
 		this.coordenadaY = coordenadaY;
 	}
-
-	@JsonFormat(pattern="HH:mm:ss")
+	
 	@JsonProperty("opened")
 	public Time getOpened() {
 		return opened;
@@ -85,7 +84,6 @@ public class PontoDeInteresseDto implements Serializable {
 		this.opened = opened;
 	}
 
-	@JsonFormat(pattern="HH:mm:ss")
 	@JsonProperty("closed")
 	public Time getClosed() {
 		return closed;
