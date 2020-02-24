@@ -13,13 +13,13 @@
  http://localhost:8080/swagger-ui.html 
 
   
- <img src="https://github.com/pauloricardodn/digitalmaps/blob/master/swagger.jpg"/>
+ <img src="https://github.com/pauloricardodn/digitalmaps/blob/master/swagger.png"/>
  
  Exemplo de json quando ponto de interesse tem horario de funcionamento: <br> 
  <img src="https://github.com/pauloricardodn/digitalmaps/blob/master/jsonhorario.png"/>
 
  Exemplo de json quando ponto de interesse tem horario de funcionamento: <br> 
- <img src="https://github.com/pauloricardodn/digitalmaps/blob/master/jsonchorario.png"/>
+ <img src="https://github.com/pauloricardodn/digitalmaps/blob/master/jsonshorario.png"/>
   
 
   
