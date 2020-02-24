@@ -117,5 +117,12 @@ public class PontoDeInteresseTestController {
 				//.andExpect(jsonPath("$.errors").value("[Cordenada y não pode ser negativa.]"))
 				.andExpect(jsonPath("$.data").isEmpty());
 	}
+	
+	@Test
+	public void testListar() throws Exception {
+		mockMvc.perform(MockMvcRequestBuilders.get(URL_BASE)
+				.accept(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk());
+	}
 
 }

@@ -1,5 +1,7 @@
 package com.digitalmaps.api.services.impl;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,4 +24,8 @@ public class PontoDeInteresseServiceImpl implements PontoDeInteresseService {
 		return this.pontoDeInteresseRepository.save(pontoDeInteresse);
 	}
 
+	public List<PontoDeInteresse> listar() {
+		log.info("Listando todos pontoDeInteresse");
+		return this.pontoDeInteresseRepository.findAll();
+	}
 }

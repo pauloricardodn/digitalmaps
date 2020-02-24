@@ -1,5 +1,7 @@
 package com.digitalmaps.api.services;
 
+import java.util.List;
+
 import com.digitalmaps.api.entities.PontoDeInteresse;
 
 public interface PontoDeInteresseService {
@@ -11,4 +13,11 @@ public interface PontoDeInteresseService {
 	 * @return PontoDeInteresse
 	 */
 	PontoDeInteresse persistir(PontoDeInteresse pontoDeInteresse);	
+	
+	/**
+	 * Retornar todos PontoDeInteresse.
+	 * 
+	 * @return PontoDeInteresse
+	 */
+	List<PontoDeInteresse> listar();
 }
